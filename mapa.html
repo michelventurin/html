@@ -1,0 +1,46 @@
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+        <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+	</head> 
+	<body>
+	
+	    <div id="map" style="height:100%"></div>
+	    <div id="map1" style="height:100%"></div>
+		
+		<script>
+            var map = L.map('map').setView([-20.353609, -40.299883],14);
+            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map);
+            var map1 = L.map('map1').setView([-20.353609, -40.299883],14);
+            L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(map1);			
+			
+            // Coordenadas UVV
+            var coordUvv = [
+            [-20.353609, -40.299883],
+            [-20.352784, -40.298907],
+            [-20.354796, -40.297566],
+            [-20.355736, -40.298779]]
+			
+			// Coordenadas 4a Etapa
+			var coord4Et = [
+			[-20.357823, -40.301234],
+            [-20.358497, -40.300386],
+            [-20.359704, -40.301813],
+            [-20.358970, -40.302714]]
+          
+            var uvv = L.polygon(coordUvv);
+            uvv.addTo(map);
+ 
+            var popup = L.popup().setContent('<p>UVV<br/><q>Universidade Vila Velha</q></p>');
+            uvv.bindPopup(popup);
+			
+			
+			var c4et = L.polygon(coord4Et);
+            c4et.addTo(map);
+ 
+            var popup = L.popup().setContent('<p>4a Etapa<br/><q>Condomínio 4a Etapa</q></p>');
+            c4et.bindPopup(popup);
+        </script>
+	</body>
+</html>
